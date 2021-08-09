@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-recess-order",
-    "stylelint-config-sass-guidelines"
-  ],
+  "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
   "plugins": ["stylelint-scss"],
   "rules": {
     "at-rule-no-unknown": null,
