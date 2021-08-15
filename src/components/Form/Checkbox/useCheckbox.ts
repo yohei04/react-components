@@ -1,7 +1,12 @@
 import { ChangeEvent, useCallback, useState } from 'react'
 
-export const useCheckbox = (checkboxLabels: string[]) => {
-  const [checkedboxes, setCheckedboxes] = useState<string[]>([])
+export const useCheckbox = (
+  checkboxLabels: string[],
+  defaultCheckedboxLabels?: string[]
+) => {
+  const [checkedboxes, setCheckedboxes] = useState<string[]>(
+    defaultCheckedboxLabels ? defaultCheckedboxLabels : []
+  )
 
   const handleCheckboxes = useCallback(
     (event: ChangeEvent<HTMLInputElement>) =>
@@ -14,7 +19,11 @@ export const useCheckbox = (checkboxLabels: string[]) => {
       }),
     []
   )
-  return { checkboxLabels, checkedboxes, handleCheckboxes }
+  return {
+    checkboxLabels,
+    checkedboxes,
+    handleCheckboxes,
+  }
 }
 
 export default useCheckbox
