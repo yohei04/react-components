@@ -19,8 +19,10 @@ export const Checkbox: FC<CheckboxProps> = ({
         type="checkbox"
         id={id}
         defaultChecked={defaultChecked}
+        aria-hidden="true"
+        tabIndex={-1} // タブでフォーカスさせない
       />
-      <span className={styles.checkmark}></span>
+      <span role={'checkbox'} tabIndex={0} className={styles.checkmark}></span>
       <span className={styles.label}>{label}</span>
     </label>
   )
