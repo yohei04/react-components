@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
-    "format": "prettier --write . && stylelint **/*.{css,scss} --fix",
+    "format": "prettier --write .",
+    "format:stylelint": "stylelint **/*.{css,scss} --fix",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test"
@@ -20,6 +21,9 @@
     "*.@(ts|tsx)": [
       "yarn lint",
       "yarn format"
+    ],
+    "*.@(css|scss)": [
+      "yarn format:stylelint"
     ]
   },
   "dependencies": {
