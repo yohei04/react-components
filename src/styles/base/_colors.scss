@@ -1,0 +1,75 @@
+$colors: (
+  'primary': (
+    300: hsl(var(--color-primary-hue), 100%, 70%),
+    500: hsl(var(--color-primary-hue), 100%, 50%),
+    700: hsl(var(--color-primary-hue), 100%, 30%),
+  ),
+  'secondary': (
+    300: hsl(var(--color-secondary-hue), 100%, 70%),
+    500: hsl(var(--color-secondary-hue), 100%, 50%),
+    700: hsl(var(--color-secondary-hue), 100%, 30%),
+  ),
+  'gray': (
+    100: hsl(0, 0%, 90%),
+    200: hsl(0, 0%, 80%),
+    300: hsl(0, 0%, 70%),
+    400: hsl(0, 0%, 60%),
+    500: hsl(0, 0%, 50%),
+    600: hsl(0, 0%, 40%),
+    700: hsl(0, 0%, 30%),
+    800: hsl(0, 0%, 20%),
+    900: hsl(0, 0%, 10%),
+  ),
+);
+
+:root {
+  --color-primary-hue: 14;
+  --color-secondary-hue: 219;
+
+  @each $color, $shade in $colors {
+    @each $prop, $value in $shade {
+      --color-#{$color}-#{$prop}: #{$value};
+    }
+  }
+}
+
+// @each $color,
+// $shade in $colors {
+
+//   @each $prop,
+//   $value in $shade {
+//     .text-#{$color}-#{$prop} {
+//       color: #{$value};
+//     }
+
+//     .bg-#{$color}-#{$prop} {
+//       background-color: #{$value};
+//     }
+//   }
+// }
+
+// 参考記事: https://qiita.com/manabuyasuda/items/ae42db5604cd723fb3cd
+
+// // ベースになる色を変数で指定しておく。
+// $color-red: rgb(219, 39, 39);
+// $color-blue: #2c5dee;
+
+// // 明るい色と暗い色を`lighten()`関数と`darken()`関数で指定する。
+// $palettes: (
+//   red: (
+//     base: $color-red,
+//     light-10: lighten($color-red, 10%),
+//     dark-10: darken($color-red, 10%),
+//   ),
+//   blue: (
+//     base: $color-blue,
+//     light-10: lighten($color-blue, 10%),
+//     dark-10: darken($color-blue, 10%),
+//   ),
+// );
+
+// // `map-get()`関数をネストして値を取得する。
+// // ネストしたvalueのデフォルトはbaseとする。
+// @function palettes($key, $tone: base) {
+//   @return map-get(map-get($palettes, $key), $tone);
+// }
