@@ -25,5 +25,3 @@ export const useCheckbox = (
     handleCheckboxes,
   }
 }
-
-export default useCheckbox
