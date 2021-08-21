@@ -1,4 +1,5 @@
 import { FC, ReactNode } from 'react'
+import { useTabs } from './TabsProvider'
 
 interface TabPanelProps {
   children: ReactNode
@@ -6,14 +7,17 @@ interface TabPanelProps {
 }
 
 export const TabPanel: FC<TabPanelProps> = ({ children, index }) => {
+  const { activeIndex } = useTabs()
+  const isSelected = activeIndex === index
+
   return (
     <div
       tabIndex={0}
       aria-labelledby={`tab-${index}`}
       role="tabpanel"
       id={`tabpanel-${index}`}
-      className="chakra-tabs__tab-panel css-a5mhaz"
-      hidden={false}
+      className="tabs__tab-panel"
+      hidden={!isSelected}
     >
       {children}
     </div>
