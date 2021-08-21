@@ -16,7 +16,6 @@ export const TabPanel: FC<TabPanelProps> = ({ children, index }) => {
       aria-labelledby={`tab-${index}`}
       role="tabpanel"
       id={`tabpanel-${index}`}
-      className="tabs__tab-panel"
       hidden={!isSelected}
     >
       {children}
