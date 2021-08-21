@@ -54,6 +54,12 @@ select {
   font: inherit;
 }
 
+button {
+  color: inherit;
+  cursor: pointer;
+  background: inherit;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
