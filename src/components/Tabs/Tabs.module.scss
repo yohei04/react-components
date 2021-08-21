@@ -1,0 +1,30 @@
+.tablist {
+  display: flex;
+  border-bottom: solid 1px var(--color-gray-300);
+
+  &[aria-orientation='vertical'] {
+    flex-direction: column;
+  }
+}
+
+.tab {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 0.2rem 1rem;
+  margin-bottom: -1px;
+  background: inherit;
+  border: solid 1px transparent;
+
+  &[aria-selected='true'] {
+    color: var(--color-primary-500);
+    border: solid 1px var(--color-gray-300);
+    border-bottom: solid 1px white;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+}
+
+.vertical {
+  display: flex;
+}

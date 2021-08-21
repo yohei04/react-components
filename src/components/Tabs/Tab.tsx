@@ -19,7 +19,7 @@ export const Tab: FC<TabProps> = ({ children, index }) => {
       tabIndex={0}
       aria-selected={isSelected}
       aria-controls={`tabpanel-${index}`}
-      className={styles.tabs__tab}
+      className={styles.tab}
       data-index="0"
       onClick={() => setActive(index)}
     >
