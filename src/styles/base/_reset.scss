@@ -15,12 +15,15 @@ p,
 figure,
 blockquote,
 dl,
-dd {
+dd,
+ul,
+ol {
   margin: 0;
 }
 
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
+  padding: 0;
   list-style: none;
 }
 
@@ -49,6 +52,12 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+  background: inherit;
 }
 
 @media (prefers-reduced-motion: reduce) {
