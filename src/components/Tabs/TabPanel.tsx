@@ -12,10 +12,10 @@ export const TabPanel: FC<TabPanelProps> = ({ children, index }) => {
 
   return (
     <div
+      id={`tabpanel-${index}`}
       tabIndex={0}
       aria-labelledby={`tab-${index}`}
       role="tabpanel"
-      id={`tabpanel-${index}`}
       hidden={!isSelected}
     >
       {children}

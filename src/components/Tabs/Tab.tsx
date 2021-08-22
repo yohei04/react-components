@@ -13,8 +13,8 @@ export const Tab: FC<TabProps> = ({ children, index }) => {
 
   return (
     <button
-      type="button"
       id={`tab-${index}`}
+      type="button"
       role="tab"
       tabIndex={0}
       aria-selected={isSelected}

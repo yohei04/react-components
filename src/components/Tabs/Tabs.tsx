@@ -1,6 +1,6 @@
-import clsx from 'clsx'
 import { FC, ReactNode } from 'react'
 import styles from './Tabs.module.scss'
+import clsx from 'clsx'
 import { TabsProvider } from './TabsProvider'
 
 interface TabsProps {
