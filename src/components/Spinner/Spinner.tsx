@@ -2,11 +2,14 @@ import { FC } from 'react'
 import styles from './Spinner.module.scss'
 
 interface SpinnerProps {
-  size: 'sm' | 'md' | 'lg'
-  color: 'blue' | 'black' | 'white'
+  color?: 'primary' | 'secondary' | 'gray-100' | 'gray-900'
+  size?: 'sm' | 'md' | 'lg'
 }
 
-export const Spinner: FC<SpinnerProps> = ({ color = 'blue', size = 'md' }) => {
+export const Spinner: FC<SpinnerProps> = ({
+  color = 'primary',
+  size = 'md',
+}) => {
   return (
     <svg viewBox="0 0 50 50" className={styles.root} data-size={size}>
       <circle
