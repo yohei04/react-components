@@ -9,14 +9,19 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   shape?: 'curve' | 'round' | 'square'
   variant?: 'solid' | 'outline'
   isFullWidth?: boolean
+  startIcon?: ReactNode
+  endIcon?: ReactNode
 }
 
 export const Button: FC<ButtonProps> = ({
+  children,
   color = 'primary',
   shape = 'curve',
   size = 'md',
   variant = 'solid',
   isFullWidth = false,
+  startIcon,
+  endIcon,
   ...rest
 }) => {
   return (
@@ -30,6 +35,16 @@ export const Button: FC<ButtonProps> = ({
         { [styles.full_width]: isFullWidth }
       )}
       {...rest}
-    />
+    >
+      {startIcon && (
+        <span className={clsx(styles.icon, styles.icon__start)}>
+          {startIcon}
+        </span>
+      )}
+      {children}
+      {endIcon && (
+        <span className={clsx(styles.icon, styles.icon__end)}>{endIcon}</span>
+      )}
+    </button>
   )
 }
