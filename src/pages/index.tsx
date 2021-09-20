@@ -1,15 +1,19 @@
 import Head from 'next/head'
-import React from 'react'
+import utilStyles from 'styles/base/Utils.module.scss'
 
-export const Home = (): JSX.Element => (
-  <div className="container">
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+export const Home = (): JSX.Element => {
+  return (
+    <div className="container">
+      <Head>
+        <title>Create Next App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-    <main></main>
-  </div>
-)
+      <main>
+        <div className={utilStyles.p_10}></div>
+      </main>
+    </div>
+  )
+}
 
 export default Home

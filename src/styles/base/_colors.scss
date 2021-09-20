@@ -2,12 +2,12 @@ $colors: (
   'primary': (
     300: hsl(var(--color-primary-hue), 100%, 70%),
     500: hsl(var(--color-primary-hue), 100%, 50%),
-    700: hsl(var(--color-primary-hue), 100%, 30%),
+    700: hsl(var(--color-primary-hue), 100%, 45%),
   ),
   'secondary': (
     300: hsl(var(--color-secondary-hue), 100%, 70%),
     500: hsl(var(--color-secondary-hue), 100%, 50%),
-    700: hsl(var(--color-secondary-hue), 100%, 30%),
+    700: hsl(var(--color-secondary-hue), 100%, 45%),
   ),
   'gray': (
     100: hsl(0, 0%, 90%),
@@ -23,8 +23,8 @@ $colors: (
 );
 
 :root {
-  --color-primary-hue: 14;
-  --color-secondary-hue: 219;
+  --color-primary-hue: 215;
+  --color-secondary-hue: 30;
 
   @each $color, $shade in $colors {
     @each $prop, $value in $shade {

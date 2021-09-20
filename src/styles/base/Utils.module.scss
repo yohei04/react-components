@@ -86,3 +86,15 @@ $spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 .ml_auto {
   margin-left: auto;
 }
+
+.sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
