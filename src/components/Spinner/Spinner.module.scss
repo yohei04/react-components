@@ -4,15 +4,15 @@
   height: var(--size-spinner);
 
   &[data-size='sm'] {
-    --size-spinner: 0.6em;
-  }
-
-  &[data-size='md'] {
     --size-spinner: 0.8em;
   }
 
-  &[data-size='lg'] {
+  &[data-size='md'] {
     --size-spinner: 1em;
+  }
+
+  &[data-size='lg'] {
+    --size-spinner: 1.2em;
   }
 
   &[data-size='xl'] {

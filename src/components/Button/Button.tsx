@@ -40,11 +40,12 @@ export const Button: FC<ButtonProps> = ({
       {...rest}
     >
       {isLoading ? (
-        <span className={clsx({ [styles.loading]: isLoading })}>
-          <Spinner size={size} />
-          <span className={styles.icon__start} />
-          {children}
-        </span>
+        <>
+          <span className={clsx({ [styles.loading]: isLoading })}>
+            <Spinner size={size} />
+          </span>
+          <span className={styles.loading__text}>{children}</span>
+        </>
       ) : (
         <>
           {startIcon && (

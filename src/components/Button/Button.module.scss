@@ -1,4 +1,5 @@
 .root {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +10,8 @@
   transition: all 0.2s ease-in-out 0s;
 
   &:hover {
-    box-shadow: 0 5px 10px var(--color-gray-300);
+    box-shadow: 0 3px 5px var(--color-gray-300);
+    opacity: 0.8;
     // transform: translateY(-3px);
   }
 
@@ -47,10 +49,6 @@
     background: var(--color-primary-500);
   }
 
-  &:hover {
-    background: var(--color-primary-700);
-  }
-
   &.outline {
     color: var(--color-primary-500);
     background: transparent;
@@ -62,10 +60,6 @@
   &.solid {
     color: white;
     background: var(--color-secondary-500);
-  }
-
-  &:hover {
-    background: var(--color-secondary-700);
   }
 
   &.outline {
@@ -101,7 +95,11 @@
 }
 
 .loading {
-  display: flex;
+  position: absolute;
+  display: inline-flex;
   align-items: center;
-  font-size: 1em;
+}
+
+.loading__text {
+  color: transparent;
 }
