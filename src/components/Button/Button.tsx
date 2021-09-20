@@ -1,6 +1,7 @@
-import { FC, ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
 import styles from './Button.module.scss'
 import clsx from 'clsx'
+import { Spinner } from '@components/Spinner'
 
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children: ReactNode
@@ -11,6 +12,7 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   isFullWidth?: boolean
   startIcon?: ReactNode
   endIcon?: ReactNode
+  isLoading?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -22,6 +24,7 @@ export const Button: FC<ButtonProps> = ({
   isFullWidth = false,
   startIcon,
   endIcon,
+  isLoading = false,
   ...rest
 }) => {
   return (
@@ -36,14 +39,26 @@ export const Button: FC<ButtonProps> = ({
       )}
       {...rest}
     >
-      {startIcon && (
-        <span className={clsx(styles.icon, styles.icon__start)}>
-          {startIcon}
+      {isLoading ? (
+        <span className={clsx({ [styles.loading]: isLoading })}>
+          <Spinner size={size} />
+          <span className={styles.icon__start} />
+          {children}
         </span>
-      )}
-      {children}
-      {endIcon && (
-        <span className={clsx(styles.icon, styles.icon__end)}>{endIcon}</span>
+      ) : (
+        <>
+          {startIcon && (
+            <span className={clsx(styles.icon, styles.icon__start)}>
+              {startIcon}
+            </span>
+          )}
+          {children}
+          {endIcon && (
+            <span className={clsx(styles.icon, styles.icon__end)}>
+              {endIcon}
+            </span>
+          )}
+        </>
       )}
     </button>
   )
