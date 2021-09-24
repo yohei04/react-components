@@ -1,58 +1,43 @@
-import { ChangeEvent, FC } from 'react'
+import { ComponentPropsWithoutRef, FC, memo, ReactNode } from 'react'
 import styles from './Checkbox.module.scss'
+import utilStyles from 'styles/base/Utils.module.scss'
+import { RequiredIndicator } from '..'
+import clsx from 'clsx'
 
-interface CheckboxProps {
-  id: string
-  label: string
-  isChecked: boolean
-  handleCheckbox: (event: ChangeEvent<HTMLInputElement>) => void
+interface CheckboxProps extends ComponentPropsWithoutRef<'input'> {
+  children: ReactNode
+  isRequired?: boolean
 }
 
-export const Checkbox: FC<CheckboxProps> = ({
-  id,
-  label,
-  isChecked,
-  handleCheckbox,
-}) => {
-  return (
-    <label className={styles.root} htmlFor={id}>
-      <input
-        type="checkbox"
-        id={id}
-        checked={isChecked}
-        onChange={handleCheckbox}
-        aria-hidden="true"
-        tabIndex={-1} // タブでフォーカスさせない
-        className={styles.input}
-      />
-      <span className={styles.checkmark}></span>
-      <span className={styles.label}>{label}</span>
-    </label>
-  )
-}
-
-// 使い方
-// const { checkboxLabels, checkedboxes, handleCheckboxes } = useCheckbox(
-//     [
-//       '期待するメニューが無かった',
-//       '月額料金が高い',
-//       '月額制が不満',
-//       '忙しくてサロンに行く時間が無くなった',
-//       '予約が取りづらい（予約が埋まっている）',
-//       '特に不満はない',
-//       'その他',
-//     ],
-//     ['月額料金が高い']
-//   )
-
-// <Stack spacing={'gap_5'}>
-//   {checkboxLabels.map((checkbox) => (
-//     <Checkbox
-//       key={checkbox}
-//       id={`${checkbox}`}
-//       isChecked={checkedboxes.includes(`${checkbox}`)}
-//       label={`${checkbox}`}
-//       handleCheckbox={handleCheckboxes}
-//     />
-//   ))}
-// </Stack>
+export const Checkbox: FC<CheckboxProps> = memo(
+  ({ children, isRequired, ...rest }) => {
+    return (
+      <label className={styles.root}>
+        <input
+          type="checkbox"
+          name="checkbox"
+          required={isRequired}
+          {...rest}
+          className={clsx(styles.input, utilStyles.sr_only)}
+        />
+        <span className={styles.control}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+            className={styles.icon}
+          >
+            <path
+              fill="none"
+              strokeWidth="3"
+              d="M1.73 12.91l6.37 6.37L22.79 4.59"
+            />
+          </svg>
+        </span>
+        <span className={styles.label}>{children}</span>
+        {isRequired && <RequiredIndicator />}
+      </label>
+    )
+  }
+)

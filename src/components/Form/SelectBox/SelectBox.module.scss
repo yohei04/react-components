@@ -1,0 +1,39 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0 0.5em 1em;
+  border: 2px solid var(--color-gray-900);
+  outline: 2px solid transparent;
+}
+
+.select {
+  z-index: 1;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus + .overlay_focus {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: var(--color-gray-100);
+    border: 2px solid var(--color-primary-500);
+  }
+}
+
+.icon {
+  position: absolute;
+  right: 1em;
+  width: 1em;
+  height: 1em;
+}
