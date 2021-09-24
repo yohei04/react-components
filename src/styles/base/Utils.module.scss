@@ -26,54 +26,6 @@ $spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
     margin-left: $space * 0.25rem;
   }
 
-  @include mq(sm) {
-    .sm\:m_#{$space} {
-      margin: $space * 0.25rem;
-    }
-    .sm\:mx_#{$space} {
-      margin: 0 $space * 0.25rem;
-    }
-    .sm\:my_#{$space} {
-      margin: $space * 0.25rem 0;
-    }
-    .sm\:mt_#{$space} {
-      margin-top: $space * 0.25rem;
-    }
-    .sm\:mr_#{$space} {
-      margin-right: $space * 0.25rem;
-    }
-    .sm\:mb_#{$space} {
-      margin-bottom: $space * 0.25rem;
-    }
-    .sm\:ml_#{$space} {
-      margin-left: $space * 0.25rem;
-    }
-  }
-
-  @include mq(md) {
-    .md\:m_#{$space} {
-      margin: $space * 0.25rem;
-    }
-    .md\:mx_#{$space} {
-      margin: 0 $space * 0.25rem;
-    }
-    .md\:my_#{$space} {
-      margin: $space * 0.25rem 0;
-    }
-    .md\:mt_#{$space} {
-      margin-top: $space * 0.25rem;
-    }
-    .md\:mr_#{$space} {
-      margin-right: $space * 0.25rem;
-    }
-    .md\:mb_#{$space} {
-      margin-bottom: $space * 0.25rem;
-    }
-    .md\:ml_#{$space} {
-      margin-left: $space * 0.25rem;
-    }
-  }
-
   .p_#{$space} {
     padding: $space * 0.25rem;
   }
@@ -114,6 +66,58 @@ $spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
   .gap_y_#{$space} {
     row-gap: $space * 0.25rem;
+  }
+}
+
+@each $space in $spaceamounts {
+  @include mq(sm) {
+    .sm_m_#{$space} {
+      margin: $space * 0.25rem;
+    }
+    .sm_mx_#{$space} {
+      margin: 0 $space * 0.25rem;
+    }
+    .sm_my_#{$space} {
+      margin: $space * 0.25rem 0;
+    }
+    .sm_mt_#{$space} {
+      margin-top: $space * 0.25rem;
+    }
+    .sm_mr_#{$space} {
+      margin-right: $space * 0.25rem;
+    }
+    .sm_mb_#{$space} {
+      margin-bottom: $space * 0.25rem;
+    }
+    .sm_ml_#{$space} {
+      margin-left: $space * 0.25rem;
+    }
+  }
+}
+
+@each $space in $spaceamounts {
+  @include mq(md) {
+    .md_m_#{$space} {
+      margin: $space * 0.25rem;
+    }
+    .md_mx_#{$space} {
+      margin: 0 $space * 0.25rem;
+    }
+    .md_my_#{$space} {
+      margin: $space * 0.25rem 0;
+    }
+    .md_mt_#{$space} {
+      margin-top: $space * 0.25rem;
+    }
+    .md_mr_#{$space} {
+      margin-right: $space * 0.25rem;
+    }
+    .md_mb_#{$space} {
+      margin-bottom: $space * 0.25rem;
+    }
+    .md_ml_#{$space} {
+      margin-left: $space * 0.25rem;
+    }
   }
 }
 
