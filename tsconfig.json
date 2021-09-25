@@ -16,7 +16,18 @@
     "paths": {
       "@components/*": ["components/*"]
     },
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "rendererOptions": {
+            "sass": {
+              "includePaths": ["src"]
+            }
+          }
+        }
+      }
+    ],
     "baseUrl": "src"
   },
   "exclude": ["node_modules", ".next", "out"],
