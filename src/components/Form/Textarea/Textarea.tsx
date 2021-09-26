@@ -1,16 +1,9 @@
-import React, {
-  ComponentPropsWithoutRef,
-  FC,
-  memo,
-  ReactNode,
-  useContext,
-} from 'react'
+import React, { ComponentPropsWithoutRef, FC, memo, useContext } from 'react'
 import styles from './Textarea.module.scss'
 import { FormControlContext } from '../FormControlContext'
 import clsx from 'clsx'
 
 interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
-  children: ReactNode
   currentLength?: number
   isOverMaxLength?: boolean
 }
@@ -23,6 +16,7 @@ export const Textarea: FC<TextareaProps> = memo(
       <>
         <textarea
           id={id}
+          name={id}
           aria-invalid={isInvalid}
           required={isRequired}
           rows={rows}

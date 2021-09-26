@@ -4,7 +4,11 @@ export const useForm = <T>(initialState: T, callback: any) => {
   const [values, setValues] = useState(initialState)
 
   const handleInputChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
+    (
+      event: ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >
+    ) => {
       const name = event.target.name
       const value = event.target.value
       setValues((prevState) => ({ ...prevState, [name]: value }))

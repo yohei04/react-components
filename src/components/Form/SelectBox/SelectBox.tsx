@@ -12,21 +12,19 @@ interface SelectBoxProps extends ComponentPropsWithoutRef<'select'> {
   children: ReactNode
 }
 
-export const SelectBox: FC<SelectBoxProps> = memo((props) => {
+export const SelectBox: FC<SelectBoxProps> = memo(({ children, ...rest }) => {
   const { id, isRequired } = useContext(FormControlContext)
 
   return (
     <div className={styles.root}>
       <select
         id={id}
+        name={id}
         required={isRequired}
-        name="question_type"
-        {...props}
+        {...rest}
         className={styles.select}
       >
-        <option value="first">First Value</option>
-        <option value="second">Second Value</option>
-        <option value="third">Third Value</option>
+        {children}
       </select>
       <span className={styles.overlay_focus} />
       <svg

@@ -1,16 +1,8 @@
-import {
-  ComponentPropsWithoutRef,
-  FC,
-  memo,
-  ReactNode,
-  useContext,
-} from 'react'
+import { ComponentPropsWithoutRef, FC, memo, useContext } from 'react'
 import styles from './TextInput.module.scss'
 import { FormControlContext } from '../FormControlContext'
 
-interface TextInputProps extends ComponentPropsWithoutRef<'input'> {
-  children: ReactNode
-}
+type TextInputProps = ComponentPropsWithoutRef<'input'>
 
 export const TextInput: FC<TextInputProps> = memo((props) => {
   const { id, isInvalid, isRequired } = useContext(FormControlContext)
@@ -18,6 +10,7 @@ export const TextInput: FC<TextInputProps> = memo((props) => {
   return (
     <input
       id={id}
+      name={id}
       aria-invalid={isInvalid}
       required={isRequired}
       {...props}
