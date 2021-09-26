@@ -23,7 +23,7 @@ export const Textarea: FC<TextareaProps> = memo(
           {...rest}
           className={styles.root}
         />
-        {currentLength && (
+        {maxLength && (
           <p
             className={clsx(styles.length, {
               [styles.length__over]: isOverMaxLength,
