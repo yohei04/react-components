@@ -7,7 +7,7 @@ import {
 } from 'react'
 import styles from './FormLabel.module.scss'
 import { RequiredIndicator } from '..'
-import { FormControlContext } from '../FormControlContext'
+import { FormControlContext } from '../FormControl/FormControlContext'
 
 interface FormLabelProps extends ComponentPropsWithoutRef<'label'> {
   children: ReactNode

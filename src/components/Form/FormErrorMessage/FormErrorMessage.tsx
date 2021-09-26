@@ -1,6 +1,6 @@
 import React, { FC, memo, ReactNode, useContext } from 'react'
 import styles from './FormErrorMessage.module.scss'
-import { FormControlContext } from '../FormControlContext'
+import { FormControlContext } from '../FormControl/FormControlContext'
 
 interface FormErrorMessageProps {
   children: ReactNode

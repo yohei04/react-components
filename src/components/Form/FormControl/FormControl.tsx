@@ -3,7 +3,7 @@ import styles from './FormControl.module.scss'
 import {
   FormControlProvider,
   FormControlProviderProps,
-} from '../FormControlContext'
+} from './FormControlContext'
 
 interface FormControlProps extends FormControlProviderProps {
   children: ReactNode

@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, FC, memo, useContext } from 'react'
 import styles from './TextInput.module.scss'
-import { FormControlContext } from '../FormControlContext'
+import { FormControlContext } from '../FormControl/FormControlContext'
 
 type TextInputProps = ComponentPropsWithoutRef<'input'>
 

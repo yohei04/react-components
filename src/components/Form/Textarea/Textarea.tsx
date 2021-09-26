@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithoutRef, FC, memo, useContext } from 'react'
 import styles from './Textarea.module.scss'
-import { FormControlContext } from '../FormControlContext'
+import { FormControlContext } from '../FormControl/FormControlContext'
 import clsx from 'clsx'
 
 interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {

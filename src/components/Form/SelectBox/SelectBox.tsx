@@ -6,7 +6,7 @@ import {
   useContext,
 } from 'react'
 import styles from './SelectBox.module.scss'
-import { FormControlContext } from '../FormControlContext'
+import { FormControlContext } from '../FormControl/FormControlContext'
 
 interface SelectBoxProps extends ComponentPropsWithoutRef<'select'> {
   children: ReactNode
