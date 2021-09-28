@@ -1,31 +1,32 @@
 .root {
-  --color-checkbox: var(--color-primary-500);
+  --accent-color-checkbox: var(--color-primary-500);
+  --size-checkbox: 1.25em;
 
   display: inline-flex;
   align-items: center;
+  font-size: calc(var(--size-checkbox) * 0.8);
 }
 
 .control {
   display: grid;
-  flex: 0 0 auto;
   place-items: center;
-  width: 1.25em;
-  height: 1.25em;
+  width: var(--size-checkbox);
+  height: var(--size-checkbox);
   margin-right: 0.5em;
-  border: 2px solid var(--color-gray-900);
+  border: 0.125em solid var(--color-gray-900);
 }
 
 .icon {
   width: 90%;
-  stroke: var(--color-checkbox);
+  stroke: var(--accent-color-checkbox);
   transform: scale(0);
 }
 
 .input {
   &:focus + .control {
     background: var(--color-gray-100);
-    border: 2px solid var(--color-checkbox);
-    box-shadow: 0 0 0.2em 0.1em var(--color-checkbox);
+    border: 0.125em solid var(--accent-color-checkbox);
+    box-shadow: 0 0 0.3em 0.05em var(--accent-color-checkbox);
   }
 
   &:checked + .control .icon {
