@@ -1,5 +1,5 @@
-import { FC, useState } from 'react'
-import { PaginationItem, PaginationPrev } from '.'
+import React, { FC, useState } from 'react'
+import { PaginationFirst, PaginationItem, PaginationPrev } from '.'
 import styles from './Pagination.module.scss'
 
 interface PaginationProps {
@@ -14,11 +14,13 @@ export const Pagination: FC<PaginationProps> = ({ totalPageCount }) => {
   return (
     <nav aria-label="pagination">
       <ul className={styles.root}>
+        <PaginationFirst
+          currentPage={currentPage}
+          handleCurrentPage={handleCurrentPage}
+        />
         <PaginationPrev
-          aria-disabled={currentPage === 1}
-          aria-label="Previous Page"
-          tabIndex={currentPage === 1 ? -1 : undefined}
-          onClick={() => handleCurrentPage(currentPage - 1)}
+          currentPage={currentPage}
+          handleCurrentPage={handleCurrentPage}
         />
         {pages.map((page) => (
           <PaginationItem
