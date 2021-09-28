@@ -18,7 +18,7 @@ export const PaginationItem: FC<PaginationItemProps> = ({
       <Link href={`/`}>
         {/* <Link href={`/page=${page}`}> */}
         <button
-          aria-label={`page ${page}`}
+          aria-label={`Page ${page}`}
           aria-current={page === currentPage ? 'page' : undefined}
           onClick={() => handleCurrentPage(page)}
           className={styles.link}

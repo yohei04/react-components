@@ -1,21 +1,32 @@
-import { ComponentPropsWithoutRef, FC } from 'react'
+import { FC } from 'react'
 import Link from 'next/link'
 import styles from './Pagination.module.scss'
 
-type PaginationPrevProps = ComponentPropsWithoutRef<'a'>
+interface PaginationPrevProps {
+  currentPage: number
+  handleCurrentPage: (page: number) => void
+}
 
-export const PaginationPrev: FC<PaginationPrevProps> = (props) => {
+export const PaginationPrev: FC<PaginationPrevProps> = ({
+  currentPage,
+  handleCurrentPage,
+}) => {
   return (
     <li>
-      <Link href={`/`}>
-        {/* <Link href={`/page=${page}`}> */}
-        <a className={styles.link} {...props}>
+      <Link href={`/page=${currentPage - 1}`}>
+        <button
+          className={styles.link}
+          aria-disabled={currentPage === 1}
+          aria-label="Previous Page"
+          tabIndex={currentPage === 1 ? -1 : undefined}
+          onClick={() => handleCurrentPage(currentPage - 1)}
+        >
           <svg
+            className={styles.arrow}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            className={styles.arrow}
           >
             <path
               strokeLinecap="round"
@@ -24,7 +35,7 @@ export const PaginationPrev: FC<PaginationPrevProps> = (props) => {
               d="M15 19l-7-7 7-7"
             />
           </svg>
-        </a>
+        </button>
       </Link>
     </li>
   )
