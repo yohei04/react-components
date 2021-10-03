@@ -21,8 +21,18 @@
 }
 
 .link {
+  position: relative;
+  outline: transparent;
+
   &:hover {
-    background: var(--color-gray-100);
+    background: var(--color-gray-200);
+  }
+
+  &:focus {
+    z-index: 1;
+    background: var(--color-gray-200);
+    border: 1px solid var(--accent-color-pagination);
+    box-shadow: 0 0 0 0.125em var(--accent-color-pagination);
   }
 
   &[aria-current='page'] {
