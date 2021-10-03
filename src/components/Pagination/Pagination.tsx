@@ -1,5 +1,10 @@
 import React, { FC } from 'react'
-import { PaginationFirst, PaginationItem, PaginationPrev } from '.'
+import {
+  PaginationDots,
+  PaginationFirst,
+  PaginationItem,
+  PaginationPrev,
+} from '.'
 import styles from './Pagination.module.scss'
 
 interface PaginationProps {
@@ -20,7 +25,7 @@ export const Pagination: FC<PaginationProps> = ({
   const pager = pages.slice(1, totalPageCount - 1).map((page) => {
     if (currentPage <= 5) {
       if (currentPage + siblingCount === page - 1) {
-        return <span style={{ background: 'red' }}>...</span>
+        return <PaginationDots />
       } else if (currentPage + siblingCount >= page) {
         return (
           <PaginationItem
@@ -36,7 +41,7 @@ export const Pagination: FC<PaginationProps> = ({
         currentPage - siblingCount === page + 1 ||
         page - 1 === currentPage + siblingCount
       ) {
-        return <span>...</span>
+        return <PaginationDots />
       } else if (
         currentPage - siblingCount <= page &&
         page <= currentPage + siblingCount
@@ -52,7 +57,7 @@ export const Pagination: FC<PaginationProps> = ({
       }
     } else if (currentPage >= 9) {
       if (currentPage - siblingCount === page + 1) {
-        return <span style={{ background: 'red' }}>...</span>
+        return <PaginationDots />
       } else if (currentPage - siblingCount < page + 1) {
         return (
           <PaginationItem
