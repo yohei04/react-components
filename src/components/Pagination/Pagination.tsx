@@ -3,6 +3,7 @@ import {
   PaginationDots,
   PaginationFirst,
   PaginationItem,
+  PaginationLast,
   PaginationNext,
   PaginationPrev,
 } from '.'
@@ -97,6 +98,11 @@ export const Pagination: FC<PaginationProps> = ({
           handleCurrentPage={handleCurrentPage}
         />
         <PaginationNext
+          currentPage={currentPage}
+          totalPageCount={totalPageCount}
+          handleCurrentPage={handleCurrentPage}
+        />
+        <PaginationLast
           currentPage={currentPage}
           totalPageCount={totalPageCount}
           handleCurrentPage={handleCurrentPage}
