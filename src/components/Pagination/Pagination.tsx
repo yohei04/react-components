@@ -22,12 +22,16 @@ export const Pagination: FC<PaginationProps> = ({
 }) => {
   const pages = Array.from({ length: totalPageCount }, (_, i) => i + 1)
 
+  /** 現在のページから左右何ページ表示するかの数 */
   const siblingCount = 2
 
   const pager = pages.slice(1, totalPageCount - 1).map((page) => {
+    // 右側にのみドットがある場合
     if (currentPage <= siblingCount + 3) {
+      // 最後から2番目にドットを表示
       if (page === totalPageCount - 2) {
-        return <PaginationDots />
+        return <PaginationDots key={page} />
+        // 現在のページ+siblingCountを表示
       } else if (currentPage + siblingCount >= page) {
         return (
           <PaginationItem
@@ -38,12 +42,15 @@ export const Pagination: FC<PaginationProps> = ({
           />
         )
       }
+      // 左右にドットがある場合
     } else if (
       currentPage >= siblingCount + 4 &&
       currentPage <= totalPageCount - siblingCount - 3
     ) {
+      // 最初から2番目と最後から2番目にドットを表示
       if (page === 2 || page === totalPageCount - 2) {
-        return <PaginationDots />
+        return <PaginationDots key={page} />
+        // 現在のページから前後siblingCountを表示
       } else if (
         currentPage - siblingCount <= page &&
         currentPage + siblingCount >= page
@@ -57,9 +64,12 @@ export const Pagination: FC<PaginationProps> = ({
           />
         )
       }
+      // 左側にのみドットがある場合
     } else if (currentPage >= totalPageCount - siblingCount - 2) {
+      // 最初から2番目にドットを表示
       if (page === 2) {
-        return <PaginationDots />
+        return <PaginationDots key={page} />
+        // 現在のページ-siblingCountを表示
       } else if (currentPage - siblingCount <= page) {
         return (
           <PaginationItem
