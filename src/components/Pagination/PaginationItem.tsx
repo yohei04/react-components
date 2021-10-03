@@ -15,16 +15,17 @@ export const PaginationItem: FC<PaginationItemProps> = ({
 }) => {
   return (
     <li>
-      <Link href={`/`}>
-        {/* <Link href={`/page=${page}`}> */}
-        <button
+      <Link href={`/`} passHref>
+        {/* <Link href={`/page=${page}`} passHref> */}
+        <a
+          className={styles.link}
+          href="replace"
           aria-label={`Page ${page}`}
           aria-current={page === currentPage ? 'page' : undefined}
           onClick={() => handleCurrentPage(page)}
-          className={styles.link}
         >
           {page}
-        </button>
+        </a>
       </Link>
     </li>
   )

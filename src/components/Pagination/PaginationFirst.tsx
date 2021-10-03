@@ -13,9 +13,11 @@ export const PaginationFirst: FC<PaginationFirstProps> = ({
 }) => {
   return (
     <li>
-      <Link href={`/page=1`}>
-        <button
+      {/* <Link href={`/page=1`} passHref> */}
+      <Link href={`/`} passHref>
+        <a
           className={styles.link}
+          href="replace"
           aria-disabled={currentPage === 1}
           aria-label="First Page"
           tabIndex={currentPage === 1 ? -1 : undefined}
@@ -35,7 +37,7 @@ export const PaginationFirst: FC<PaginationFirstProps> = ({
               d="M11 19l-7-7 7-7m8 14l-7-7 7-7"
             />
           </svg>
-        </button>
+        </a>
       </Link>
     </li>
   )

@@ -13,9 +13,11 @@ export const PaginationPrev: FC<PaginationPrevProps> = ({
 }) => {
   return (
     <li>
-      <Link href={`/page=${currentPage - 1}`}>
-        <button
+      {/* <Link href={`/page=${currentPage - 1}`} passHref> */}
+      <Link href={`/`} passHref>
+        <a
           className={styles.link}
+          href="replace"
           aria-disabled={currentPage === 1}
           aria-label="Previous Page"
           tabIndex={currentPage === 1 ? -1 : undefined}
@@ -35,7 +37,7 @@ export const PaginationPrev: FC<PaginationPrevProps> = ({
               d="M15 19l-7-7 7-7"
             />
           </svg>
-        </button>
+        </a>
       </Link>
     </li>
   )
