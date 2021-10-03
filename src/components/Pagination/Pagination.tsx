@@ -25,8 +25,8 @@ export const Pagination: FC<PaginationProps> = ({
   const siblingCount = 2
 
   const pager = pages.slice(1, totalPageCount - 1).map((page) => {
-    if (currentPage <= 5) {
-      if (currentPage + siblingCount === page - 1) {
+    if (currentPage <= siblingCount + 3) {
+      if (page === totalPageCount - 2) {
         return <PaginationDots />
       } else if (currentPage + siblingCount >= page) {
         return (
@@ -38,15 +38,15 @@ export const Pagination: FC<PaginationProps> = ({
           />
         )
       }
-    } else if (currentPage >= 6 && currentPage <= 8) {
-      if (
-        currentPage - siblingCount === page + 1 ||
-        page - 1 === currentPage + siblingCount
-      ) {
+    } else if (
+      currentPage >= siblingCount + 4 &&
+      currentPage <= totalPageCount - siblingCount - 3
+    ) {
+      if (page === 2 || page === totalPageCount - 2) {
         return <PaginationDots />
       } else if (
         currentPage - siblingCount <= page &&
-        page <= currentPage + siblingCount
+        currentPage + siblingCount >= page
       ) {
         return (
           <PaginationItem
@@ -57,10 +57,10 @@ export const Pagination: FC<PaginationProps> = ({
           />
         )
       }
-    } else if (currentPage >= 9) {
-      if (currentPage - siblingCount === page + 1) {
+    } else if (currentPage >= totalPageCount - siblingCount - 2) {
+      if (page === 2) {
         return <PaginationDots />
-      } else if (currentPage - siblingCount < page + 1) {
+      } else if (currentPage - siblingCount <= page) {
         return (
           <PaginationItem
             key={page}
