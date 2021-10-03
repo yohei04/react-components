@@ -15,6 +15,57 @@ export const Pagination: FC<PaginationProps> = ({
 }) => {
   const pages = Array.from({ length: totalPageCount }, (_, i) => i + 1)
 
+  const siblingCount = 2
+
+  const pager = pages.slice(1, totalPageCount - 1).map((page) => {
+    if (currentPage <= 5) {
+      if (currentPage + siblingCount === page - 1) {
+        return <span style={{ background: 'red' }}>...</span>
+      } else if (currentPage + siblingCount >= page) {
+        return (
+          <PaginationItem
+            key={page}
+            page={page}
+            currentPage={currentPage}
+            handleCurrentPage={handleCurrentPage}
+          />
+        )
+      }
+    } else if (currentPage >= 6 && currentPage <= 8) {
+      if (
+        currentPage - siblingCount === page + 1 ||
+        page - 1 === currentPage + siblingCount
+      ) {
+        return <span>...</span>
+      } else if (
+        currentPage - siblingCount <= page &&
+        page <= currentPage + siblingCount
+      ) {
+        return (
+          <PaginationItem
+            key={page}
+            page={page}
+            currentPage={currentPage}
+            handleCurrentPage={handleCurrentPage}
+          />
+        )
+      }
+    } else if (currentPage >= 9) {
+      if (currentPage - siblingCount === page + 1) {
+        return <span style={{ background: 'red' }}>...</span>
+      } else if (currentPage - siblingCount < page + 1) {
+        return (
+          <PaginationItem
+            key={page}
+            page={page}
+            currentPage={currentPage}
+            handleCurrentPage={handleCurrentPage}
+          />
+        )
+      }
+    }
+  })
+
   return (
     <nav aria-label="pagination">
       <ul className={styles.root}>
@@ -26,14 +77,19 @@ export const Pagination: FC<PaginationProps> = ({
           currentPage={currentPage}
           handleCurrentPage={handleCurrentPage}
         />
-        {pages.map((page) => (
-          <PaginationItem
-            key={page}
-            page={page}
-            currentPage={currentPage}
-            handleCurrentPage={handleCurrentPage}
-          />
-        ))}
+        <PaginationItem
+          key={1}
+          page={1}
+          currentPage={currentPage}
+          handleCurrentPage={handleCurrentPage}
+        />
+        {pager}
+        <PaginationItem
+          key={totalPageCount}
+          page={totalPageCount}
+          currentPage={currentPage}
+          handleCurrentPage={handleCurrentPage}
+        />
       </ul>
     </nav>
   )
