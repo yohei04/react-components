@@ -3,6 +3,7 @@ import {
   PaginationDots,
   PaginationFirst,
   PaginationItem,
+  PaginationNext,
   PaginationPrev,
 } from '.'
 import styles from './Pagination.module.scss'
@@ -93,6 +94,11 @@ export const Pagination: FC<PaginationProps> = ({
           key={totalPageCount}
           page={totalPageCount}
           currentPage={currentPage}
+          handleCurrentPage={handleCurrentPage}
+        />
+        <PaginationNext
+          currentPage={currentPage}
+          totalPageCount={totalPageCount}
           handleCurrentPage={handleCurrentPage}
         />
       </ul>
