@@ -21,7 +21,9 @@ export const PaginationPrev: FC<PaginationPrevProps> = ({
           aria-disabled={currentPage === 1}
           aria-label="Previous Page"
           tabIndex={currentPage === 1 ? -1 : undefined}
-          onClick={() => handleCurrentPage(currentPage - 1)}
+          onClick={() =>
+            currentPage !== 1 && handleCurrentPage(currentPage - 1)
+          }
         >
           <svg
             className={styles.arrow}

@@ -23,7 +23,9 @@ export const PaginationNext: FC<PaginationNextProps> = ({
           aria-disabled={currentPage === totalPageCount}
           aria-label="Next Page"
           tabIndex={currentPage === totalPageCount ? -1 : undefined}
-          onClick={() => handleCurrentPage(currentPage + 1)}
+          onClick={() =>
+            currentPage !== totalPageCount && handleCurrentPage(currentPage + 1)
+          }
         >
           <svg
             className={styles.arrow}
