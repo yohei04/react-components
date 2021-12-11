@@ -1,20 +1,14 @@
 import { Pagination } from '@components/Pagination'
-import { useState } from 'react'
+import { usePagination } from '@components/Pagination/usePagination'
 import utilStyles from 'styles/base/Utils.module.scss'
 
 export const Home = (): JSX.Element => {
-  const posts = [...Array(21)].map((e, i) => {
+  const posts = [...Array(51)].map((e, i) => {
     return { id: i + 1, title: `post-${i + 1}`, content: `content-${i + 1}` }
   })
 
-  /** トータルのデータ数 */
-  const totalCount = posts.length
-  /** 1ページに表示する数 */
-  const pageSize = 5
-  /** トータルのページ数 */
-  const totalPageCount = Math.ceil(totalCount / pageSize)
-  const [currentPage, setCurrentPage] = useState(1)
-  const handleCurrentPage = (page: number) => setCurrentPage(page)
+  const { totalPageCount, pageSize, currentPage, handleCurrentPage } =
+    usePagination(posts)
 
   return (
     <div>
